@@ -9,7 +9,7 @@ export function up(knex: Knex)
          {
             table.increments('id').primary();
 
-            table.timestamp('created_at').notNullable().defaultTo('now()');
+            table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP'));
 
             table.integer('user_id')
                .notNullable()
